@@ -10,13 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ProdutoSlugRouteImport } from './routes/produto.$slug'
+import { Route as AuthenticatedContaIndexRouteImport } from './routes/_authenticated/conta.index'
+import { Route as AuthenticatedContaPedidosIndexRouteImport } from './routes/_authenticated/conta.pedidos.index'
+import { Route as AuthenticatedContaPedidosIdRouteImport } from './routes/_authenticated/conta.pedidos.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CarrinhoRoute = CarrinhoRouteImport.update({
@@ -29,43 +45,125 @@ const CatalogoRoute = CatalogoRouteImport.update({
   path: '/catalogo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProdutoSlugRoute = ProdutoSlugRouteImport.update({
   id: '/produto/$slug',
   path: '/produto/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedContaIndexRoute = AuthenticatedContaIndexRouteImport.update({
+  id: '/conta/',
+  path: '/conta/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedContaPedidosIndexRoute =
+  AuthenticatedContaPedidosIndexRouteImport.update({
+    id: '/conta/pedidos/',
+    path: '/conta/pedidos/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedContaPedidosIdRoute =
+  AuthenticatedContaPedidosIdRouteImport.update({
+    id: '/conta/pedidos/$id',
+    path: '/conta/pedidos/$id',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/catalogo': typeof CatalogoRoute
+  '/checkout': typeof CheckoutRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/produto/$slug': typeof ProdutoSlugRoute
+  '/conta/': typeof AuthenticatedContaIndexRoute
+  '/conta/pedidos/$id': typeof AuthenticatedContaPedidosIdRoute
+  '/conta/pedidos/': typeof AuthenticatedContaPedidosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/catalogo': typeof CatalogoRoute
+  '/checkout': typeof CheckoutRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/produto/$slug': typeof ProdutoSlugRoute
+  '/conta': typeof AuthenticatedContaIndexRoute
+  '/conta/pedidos/$id': typeof AuthenticatedContaPedidosIdRoute
+  '/conta/pedidos': typeof AuthenticatedContaPedidosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/catalogo': typeof CatalogoRoute
+  '/checkout': typeof CheckoutRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/produto/$slug': typeof ProdutoSlugRoute
+  '/_authenticated/conta/': typeof AuthenticatedContaIndexRoute
+  '/_authenticated/conta/pedidos/$id': typeof AuthenticatedContaPedidosIdRoute
+  '/_authenticated/conta/pedidos/': typeof AuthenticatedContaPedidosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/carrinho' | '/catalogo' | '/produto/$slug'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/carrinho'
+    | '/catalogo'
+    | '/checkout'
+    | '/reset-password'
+    | '/produto/$slug'
+    | '/conta/'
+    | '/conta/pedidos/$id'
+    | '/conta/pedidos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/carrinho' | '/catalogo' | '/produto/$slug'
-  id: '__root__' | '/' | '/carrinho' | '/catalogo' | '/produto/$slug'
+  to:
+    | '/'
+    | '/auth'
+    | '/carrinho'
+    | '/catalogo'
+    | '/checkout'
+    | '/reset-password'
+    | '/produto/$slug'
+    | '/conta'
+    | '/conta/pedidos/$id'
+    | '/conta/pedidos'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/carrinho'
+    | '/catalogo'
+    | '/checkout'
+    | '/reset-password'
+    | '/produto/$slug'
+    | '/_authenticated/conta/'
+    | '/_authenticated/conta/pedidos/$id'
+    | '/_authenticated/conta/pedidos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
   CarrinhoRoute: typeof CarrinhoRoute
   CatalogoRoute: typeof CatalogoRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ProdutoSlugRoute: typeof ProdutoSlugRoute
 }
 
@@ -76,6 +174,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/carrinho': {
@@ -92,6 +204,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/produto/$slug': {
       id: '/produto/$slug'
       path: '/produto/$slug'
@@ -99,13 +225,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutoSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/conta/': {
+      id: '/_authenticated/conta/'
+      path: '/conta'
+      fullPath: '/conta/'
+      preLoaderRoute: typeof AuthenticatedContaIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/conta/pedidos/': {
+      id: '/_authenticated/conta/pedidos/'
+      path: '/conta/pedidos'
+      fullPath: '/conta/pedidos/'
+      preLoaderRoute: typeof AuthenticatedContaPedidosIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/conta/pedidos/$id': {
+      id: '/_authenticated/conta/pedidos/$id'
+      path: '/conta/pedidos/$id'
+      fullPath: '/conta/pedidos/$id'
+      preLoaderRoute: typeof AuthenticatedContaPedidosIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedContaIndexRoute: typeof AuthenticatedContaIndexRoute
+  AuthenticatedContaPedidosIdRoute: typeof AuthenticatedContaPedidosIdRoute
+  AuthenticatedContaPedidosIndexRoute: typeof AuthenticatedContaPedidosIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedContaIndexRoute: AuthenticatedContaIndexRoute,
+  AuthenticatedContaPedidosIdRoute: AuthenticatedContaPedidosIdRoute,
+  AuthenticatedContaPedidosIndexRoute: AuthenticatedContaPedidosIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
   CarrinhoRoute: CarrinhoRoute,
   CatalogoRoute: CatalogoRoute,
+  CheckoutRoute: CheckoutRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ProdutoSlugRoute: ProdutoSlugRoute,
 }
 export const routeTree = rootRouteImport
