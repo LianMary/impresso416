@@ -11,7 +11,7 @@ export const Route = createFileRoute("/admin")({
     const { data } = await supabase.auth.getUser();
     if (!data.user || !(await checkAdmin(data.user.id))) throw redirect({ to: "/admin/login" });
   },
-  head: () => ({ meta: [{ title: "Admin — Papelaria Cores" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Admin — Impresso416" }, { name: "robots", content: "noindex" }] }),
   component: AdminLayout,
 });
 
@@ -39,7 +39,7 @@ function AdminLayout() {
     <div className="min-h-screen bg-muted md:flex">
       <aside className="sticky top-0 z-30 bg-sidebar text-sidebar-foreground md:h-screen md:w-60 md:shrink-0">
         <div className="flex items-center justify-between px-4 py-3 md:block md:py-6">
-          <p className="font-display text-lg font-extrabold">Cores <span className="text-sidebar-primary">Admin</span></p>
+          <p className="font-display text-lg font-extrabold">Impresso<span className="text-sidebar-primary">416</span></p>
           <div className="flex gap-1 md:hidden">
             <Link to="/" className="rounded-lg p-2 hover:bg-sidebar-accent" aria-label="Loja"><Store className="h-5 w-5" /></Link>
             <button onClick={out} className="rounded-lg p-2 hover:bg-sidebar-accent" aria-label="Sair"><LogOut className="h-5 w-5" /></button>

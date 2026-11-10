@@ -16,9 +16,9 @@ import { useAuth } from "@/lib/auth";
 export const Route = createFileRoute("/_authenticated/conta/")({
   head: () => ({
     meta: [
-      { title: "Minha conta — Papelaria Cores" },
+      { title: "Minha conta — Impresso416" },
       { name: "description", content: "Gerencie seus dados e endereços." },
-      { property: "og:title", content: "Minha conta — Papelaria Cores" },
+      { property: "og:title", content: "Minha conta — Impresso416" },
       { property: "og:description", content: "Gerencie seus dados e endereços." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

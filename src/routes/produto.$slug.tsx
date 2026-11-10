@@ -12,9 +12,9 @@ import { useCart } from "@/lib/cart";
 export const Route = createFileRoute("/produto/$slug")({
   head: () => ({
     meta: [
-      { title: "Produto — Papelaria Cores" },
-      { name: "description", content: "Detalhes, fotos e estoque do produto na Papelaria Cores." },
-      { property: "og:title", content: "Produto — Papelaria Cores" },
+      { title: "Produto — Impresso416" },
+      { name: "description", content: "Detalhes, fotos e estoque do produto na Impresso416." },
+      { property: "og:title", content: "Produto — Impresso416" },
       { property: "og:description", content: "Veja fotos, descrição e preço." },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary" },

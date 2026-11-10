@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Store data via Lovable Cloud browser client + RLS; checkout goes through the `place_order` SQL function so stock decrement and order creation stay atomic.
+- Admin access is checked with `has_role` (user_roles table); `/admin` layout gates client-side, RLS enforces server-side.
+- Product images live in a private bucket; admin stores long-lived signed URLs in `products.images` because public buckets are blocked by workspace policy.

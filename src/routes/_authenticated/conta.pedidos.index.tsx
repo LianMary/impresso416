@@ -12,9 +12,9 @@ import { useAuth } from "@/lib/auth";
 export const Route = createFileRoute("/_authenticated/conta/pedidos/")({
   head: () => ({
     meta: [
-      { title: "Meus pedidos — Papelaria Cores" },
+      { title: "Meus pedidos — Impresso416" },
       { name: "description", content: "Acompanhe o histórico e o status dos seus pedidos." },
-      { property: "og:title", content: "Meus pedidos — Papelaria Cores" },
+      { property: "og:title", content: "Meus pedidos — Impresso416" },
       { property: "og:description", content: "Histórico de pedidos." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

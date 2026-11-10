@@ -12,9 +12,9 @@ import { categoriesQuery } from "@/lib/api";
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2">
-      <span className="grid h-9 w-9 rotate-[-6deg] place-items-center rounded-xl bg-primary font-display text-lg font-extrabold text-primary-foreground">C</span>
+      <span className="grid h-9 w-9 rotate-[-6deg] place-items-center rounded-xl bg-primary font-display text-lg font-extrabold text-primary-foreground">i</span>
       <span className="font-display text-xl font-extrabold leading-none">
-        Papelaria <span className="text-primary">Cores</span>
+        Impresso<span className="text-primary">416</span>
       </span>
     </Link>
   );

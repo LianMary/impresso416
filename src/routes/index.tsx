@@ -10,9 +10,9 @@ import { CATEGORY_CLASS } from "@/lib/status";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Papelaria Cores — cadernos, canetas e criatividade" },
+      { title: "Impresso416 — cadernos, canetas e criatividade" },
       { name: "description", content: "Papelaria online com cadernos, canetas, material escolar, escritório e arte. Frete grátis acima de R$ 150." },
-      { property: "og:title", content: "Papelaria Cores — papel, cor e criatividade" },
+      { property: "og:title", content: "Impresso416 — papel, cor e criatividade" },
       { property: "og:description", content: "Cadernos, canetas, material escolar e arte com frete grátis acima de R$ 150." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

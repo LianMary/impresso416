@@ -63,9 +63,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Papelaria Cores — papel, cor e criatividade" },
+      { title: "Impresso416 — papel, cor e criatividade" },
       { name: "description", content: "Cadernos, canetas, material escolar, escritório e arte com entrega para todo o Brasil." },
-      { property: "og:title", content: "Papelaria Cores" },
+      { property: "og:title", content: "Impresso416" },
       { property: "og:description", content: "Cadernos, canetas, material escolar, escritório e arte." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

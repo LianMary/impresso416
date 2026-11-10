@@ -10,9 +10,9 @@ import { OrderDetail } from "@/components/store/OrderDetail";
 export const Route = createFileRoute("/_authenticated/conta/pedidos/$id")({
   head: () => ({
     meta: [
-      { title: "Detalhes do pedido — Papelaria Cores" },
+      { title: "Detalhes do pedido — Impresso416" },
       { name: "description", content: "Status e itens do seu pedido." },
-      { property: "og:title", content: "Pedido — Papelaria Cores" },
+      { property: "og:title", content: "Pedido — Impresso416" },
       { property: "og:description", content: "Status e itens do seu pedido." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

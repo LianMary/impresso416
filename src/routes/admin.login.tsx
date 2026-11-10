@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export const Route = createFileRoute("/admin/login")({
-  head: () => ({ meta: [{ title: "Login do administrador — Papelaria Cores" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Login do administrador — Impresso416" }, { name: "robots", content: "noindex" }] }),
   component: AdminLogin,
 });
 

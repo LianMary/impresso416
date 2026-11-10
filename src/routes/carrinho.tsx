@@ -8,9 +8,9 @@ import { FREE_SHIPPING_FROM } from "@/lib/shipping";
 export const Route = createFileRoute("/carrinho")({
   head: () => ({
     meta: [
-      { title: "Carrinho — Papelaria Cores" },
+      { title: "Carrinho — Impresso416" },
       { name: "description", content: "Revise os itens do seu carrinho." },
-      { property: "og:title", content: "Carrinho — Papelaria Cores" },
+      { property: "og:title", content: "Carrinho — Impresso416" },
       { property: "og:description", content: "Revise os itens do seu carrinho." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

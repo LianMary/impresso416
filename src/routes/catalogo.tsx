@@ -17,10 +17,10 @@ export const Route = createFileRoute("/catalogo")({
   }),
   head: () => ({
     meta: [
-      { title: "Catálogo — Papelaria Cores" },
+      { title: "Catálogo — Impresso416" },
       { name: "description", content: "Explore cadernos, canetas, material escolar, escritório e arte e artesanato." },
-      { property: "og:title", content: "Catálogo — Papelaria Cores" },
-      { property: "og:description", content: "Todos os produtos da Papelaria Cores em um só lugar." },
+      { property: "og:title", content: "Catálogo — Impresso416" },
+      { property: "og:description", content: "Todos os produtos da Impresso416 em um só lugar." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

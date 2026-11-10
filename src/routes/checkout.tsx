@@ -16,10 +16,10 @@ import { shippingFor, type DeliveryMethod } from "@/lib/shipping";
 export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
-      { title: "Finalizar compra — Papelaria Cores" },
+      { title: "Finalizar compra — Impresso416" },
       { name: "description", content: "Informe seus dados, entrega e pagamento." },
-      { property: "og:title", content: "Finalizar compra — Papelaria Cores" },
-      { property: "og:description", content: "Checkout da Papelaria Cores." },
+      { property: "og:title", content: "Finalizar compra — Impresso416" },
+      { property: "og:description", content: "Checkout da Impresso416." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer className="mt-20 bg-ink text-ink-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-display text-2xl font-extrabold">Papelaria <span className="text-primary">Cores</span></p>
+          <p className="font-display text-2xl font-extrabold">Impresso<span className="text-primary">416</span></p>
           <p className="mt-3 text-sm opacity-80">Papel, cor e criatividade para o seu dia a dia desde 2012.</p>
         </div>
         <div>
@@ -22,7 +22,7 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-sm opacity-80">
             <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0" /> Rua das Flores, 123 — Centro, São Paulo/SP</li>
             <li className="flex gap-2"><Phone className="h-4 w-4" /> (11) 3456-7890</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4" /> contato@papelariacores.com.br</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4" /> contato@impresso416.com.br</li>
             <li>Seg a Sáb, 9h às 19h</li>
           </ul>
         </div>
@@ -37,7 +37,7 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <p className="border-t border-sidebar-border py-5 text-center text-xs opacity-70">© {new Date().getFullYear()} Papelaria Cores. Todos os direitos reservados.</p>
+      <p className="border-t border-sidebar-border py-5 text-center text-xs opacity-70">© {new Date().getFullYear()} Impresso416. Todos os direitos reservados.</p>
     </footer>
   );
 }

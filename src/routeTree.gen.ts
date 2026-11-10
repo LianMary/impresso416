@@ -11,13 +11,21 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminCategoriasRouteImport } from './routes/admin.categorias'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as ProdutoSlugRouteImport } from './routes/produto.$slug'
 import { Route as AuthenticatedContaIndexRouteImport } from './routes/_authenticated/conta.index'
+import { Route as AdminPedidosIndexRouteImport } from './routes/admin.pedidos.index'
+import { Route as AdminPedidosIdRouteImport } from './routes/admin.pedidos.$id'
+import { Route as AdminProdutosIndexRouteImport } from './routes/admin.produtos.index'
+import { Route as AdminProdutosIdRouteImport } from './routes/admin.produtos.$id'
 import { Route as AuthenticatedContaPedidosIndexRouteImport } from './routes/_authenticated/conta.pedidos.index'
 import { Route as AuthenticatedContaPedidosIdRouteImport } from './routes/_authenticated/conta.pedidos.$id'
 
@@ -28,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -55,6 +68,21 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCategoriasRoute = AdminCategoriasRouteImport.update({
+  id: '/categorias',
+  path: '/categorias',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ProdutoSlugRoute = ProdutoSlugRouteImport.update({
   id: '/produto/$slug',
   path: '/produto/$slug',
@@ -64,6 +92,26 @@ const AuthenticatedContaIndexRoute = AuthenticatedContaIndexRouteImport.update({
   id: '/conta/',
   path: '/conta/',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AdminPedidosIndexRoute = AdminPedidosIndexRouteImport.update({
+  id: '/pedidos/',
+  path: '/pedidos/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPedidosIdRoute = AdminPedidosIdRouteImport.update({
+  id: '/pedidos/$id',
+  path: '/pedidos/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProdutosIndexRoute = AdminProdutosIndexRouteImport.update({
+  id: '/produtos/',
+  path: '/produtos/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProdutosIdRoute = AdminProdutosIdRouteImport.update({
+  id: '/produtos/$id',
+  path: '/produtos/$id',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AuthenticatedContaPedidosIndexRoute =
   AuthenticatedContaPedidosIndexRouteImport.update({
@@ -80,13 +128,21 @@ const AuthenticatedContaPedidosIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/catalogo': typeof CatalogoRoute
   '/checkout': typeof CheckoutRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin/categorias': typeof AdminCategoriasRoute
+  '/admin/login': typeof AdminLoginRoute
   '/produto/$slug': typeof ProdutoSlugRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/pedidos/$id': typeof AdminPedidosIdRoute
+  '/admin/produtos/$id': typeof AdminProdutosIdRoute
   '/conta/': typeof AuthenticatedContaIndexRoute
+  '/admin/pedidos/': typeof AdminPedidosIndexRoute
+  '/admin/produtos/': typeof AdminProdutosIndexRoute
   '/conta/pedidos/$id': typeof AuthenticatedContaPedidosIdRoute
   '/conta/pedidos/': typeof AuthenticatedContaPedidosIndexRoute
 }
@@ -97,8 +153,15 @@ export interface FileRoutesByTo {
   '/catalogo': typeof CatalogoRoute
   '/checkout': typeof CheckoutRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin/categorias': typeof AdminCategoriasRoute
+  '/admin/login': typeof AdminLoginRoute
   '/produto/$slug': typeof ProdutoSlugRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/pedidos/$id': typeof AdminPedidosIdRoute
+  '/admin/produtos/$id': typeof AdminProdutosIdRoute
   '/conta': typeof AuthenticatedContaIndexRoute
+  '/admin/pedidos': typeof AdminPedidosIndexRoute
+  '/admin/produtos': typeof AdminProdutosIndexRoute
   '/conta/pedidos/$id': typeof AuthenticatedContaPedidosIdRoute
   '/conta/pedidos': typeof AuthenticatedContaPedidosIndexRoute
 }
@@ -106,13 +169,21 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/catalogo': typeof CatalogoRoute
   '/checkout': typeof CheckoutRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin/categorias': typeof AdminCategoriasRoute
+  '/admin/login': typeof AdminLoginRoute
   '/produto/$slug': typeof ProdutoSlugRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/pedidos/$id': typeof AdminPedidosIdRoute
+  '/admin/produtos/$id': typeof AdminProdutosIdRoute
   '/_authenticated/conta/': typeof AuthenticatedContaIndexRoute
+  '/admin/pedidos/': typeof AdminPedidosIndexRoute
+  '/admin/produtos/': typeof AdminProdutosIndexRoute
   '/_authenticated/conta/pedidos/$id': typeof AuthenticatedContaPedidosIdRoute
   '/_authenticated/conta/pedidos/': typeof AuthenticatedContaPedidosIndexRoute
 }
@@ -120,13 +191,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/auth'
     | '/carrinho'
     | '/catalogo'
     | '/checkout'
     | '/reset-password'
+    | '/admin/categorias'
+    | '/admin/login'
     | '/produto/$slug'
+    | '/admin/'
+    | '/admin/pedidos/$id'
+    | '/admin/produtos/$id'
     | '/conta/'
+    | '/admin/pedidos/'
+    | '/admin/produtos/'
     | '/conta/pedidos/$id'
     | '/conta/pedidos/'
   fileRoutesByTo: FileRoutesByTo
@@ -137,21 +216,36 @@ export interface FileRouteTypes {
     | '/catalogo'
     | '/checkout'
     | '/reset-password'
+    | '/admin/categorias'
+    | '/admin/login'
     | '/produto/$slug'
+    | '/admin'
+    | '/admin/pedidos/$id'
+    | '/admin/produtos/$id'
     | '/conta'
+    | '/admin/pedidos'
+    | '/admin/produtos'
     | '/conta/pedidos/$id'
     | '/conta/pedidos'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/admin'
     | '/auth'
     | '/carrinho'
     | '/catalogo'
     | '/checkout'
     | '/reset-password'
+    | '/admin/categorias'
+    | '/admin/login'
     | '/produto/$slug'
+    | '/admin/'
+    | '/admin/pedidos/$id'
+    | '/admin/produtos/$id'
     | '/_authenticated/conta/'
+    | '/admin/pedidos/'
+    | '/admin/produtos/'
     | '/_authenticated/conta/pedidos/$id'
     | '/_authenticated/conta/pedidos/'
   fileRoutesById: FileRoutesById
@@ -159,6 +253,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
   CarrinhoRoute: typeof CarrinhoRoute
   CatalogoRoute: typeof CatalogoRoute
@@ -181,6 +276,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -218,6 +320,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/categorias': {
+      id: '/admin/categorias'
+      path: '/categorias'
+      fullPath: '/admin/categorias'
+      preLoaderRoute: typeof AdminCategoriasRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/produto/$slug': {
       id: '/produto/$slug'
       path: '/produto/$slug'
@@ -231,6 +354,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/conta/'
       preLoaderRoute: typeof AuthenticatedContaIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/admin/pedidos/': {
+      id: '/admin/pedidos/'
+      path: '/pedidos'
+      fullPath: '/admin/pedidos/'
+      preLoaderRoute: typeof AdminPedidosIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pedidos/$id': {
+      id: '/admin/pedidos/$id'
+      path: '/pedidos/$id'
+      fullPath: '/admin/pedidos/$id'
+      preLoaderRoute: typeof AdminPedidosIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/produtos/': {
+      id: '/admin/produtos/'
+      path: '/produtos'
+      fullPath: '/admin/produtos/'
+      preLoaderRoute: typeof AdminProdutosIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/produtos/$id': {
+      id: '/admin/produtos/$id'
+      path: '/produtos/$id'
+      fullPath: '/admin/produtos/$id'
+      preLoaderRoute: typeof AdminProdutosIdRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/_authenticated/conta/pedidos/': {
       id: '/_authenticated/conta/pedidos/'
@@ -264,9 +415,32 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface AdminRouteChildren {
+  AdminCategoriasRoute: typeof AdminCategoriasRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminPedidosIdRoute: typeof AdminPedidosIdRoute
+  AdminProdutosIdRoute: typeof AdminProdutosIdRoute
+  AdminPedidosIndexRoute: typeof AdminPedidosIndexRoute
+  AdminProdutosIndexRoute: typeof AdminProdutosIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminCategoriasRoute: AdminCategoriasRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminPedidosIdRoute: AdminPedidosIdRoute,
+  AdminProdutosIdRoute: AdminProdutosIdRoute,
+  AdminPedidosIndexRoute: AdminPedidosIndexRoute,
+  AdminProdutosIndexRoute: AdminProdutosIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
   CarrinhoRoute: CarrinhoRoute,
   CatalogoRoute: CatalogoRoute,

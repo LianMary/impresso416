@@ -16,10 +16,10 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Entrar ou cadastrar — Papelaria Cores" },
-      { name: "description", content: "Acesse sua conta da Papelaria Cores." },
-      { property: "og:title", content: "Entrar — Papelaria Cores" },
-      { property: "og:description", content: "Acesse sua conta da Papelaria Cores." },
+      { title: "Entrar ou cadastrar — Impresso416" },
+      { name: "description", content: "Acesse sua conta da Impresso416." },
+      { property: "og:title", content: "Entrar — Impresso416" },
+      { property: "og:description", content: "Acesse sua conta da Impresso416." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

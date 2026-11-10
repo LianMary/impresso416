@@ -9,9 +9,9 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Nova senha — Papelaria Cores" },
+      { title: "Nova senha — Impresso416" },
       { name: "description", content: "Defina uma nova senha para sua conta." },
-      { property: "og:title", content: "Nova senha — Papelaria Cores" },
+      { property: "og:title", content: "Nova senha — Impresso416" },
       { property: "og:description", content: "Defina uma nova senha." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
