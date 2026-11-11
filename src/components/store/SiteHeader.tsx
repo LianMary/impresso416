@@ -8,11 +8,12 @@ import { Input } from "@/components/ui/input";
 import { useCart } from "@/lib/cart";
 import { useAuth } from "@/lib/auth";
 import { categoriesQuery } from "@/lib/api";
+import logoMarkUrl from "@/assets/logo-mark.png";
 
 export function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2">
-      <span className="grid h-9 w-9 rotate-[-6deg] place-items-center rounded-xl bg-primary font-display text-lg font-extrabold text-primary-foreground">i</span>
+    <Link to="/" className="flex items-center gap-2" aria-label="Impresso416 — início">
+      <img src={logoMarkUrl} alt="" width={500} height={500} className="h-9 w-9 rotate-[-4deg]" />
       <span className="font-display text-xl font-extrabold leading-none">
         Impresso<span className="text-primary">416</span>
       </span>
